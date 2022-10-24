@@ -13,7 +13,7 @@ router.get('/', (request, response, next) => {
   });
 });
 
-router.get('/:id', (request, response, next) => {
+router.get('/id/:id', (request, response, next) => {
   const { id } = request.params;
 
   pool.query('SELECT * FROM monsters WHERE id = $1', [id], (err, res) => {
@@ -22,6 +22,20 @@ router.get('/:id', (request, response, next) => {
     }
 
     response.json(res.rows);
+  });
+});
+
+router.get('/random', (request, response, next) => {
+  pool.query('SELECT * FROM monsters', (err, res) => {
+    if (err) {
+      return next(err);
+    }
+
+    response.json(
+      res.rows.length > 0
+        ? res.rows[Math.floor(Math.random() * res.rows.length)]
+        : [],
+    );
   });
 });
 
@@ -41,7 +55,7 @@ router.post('/', (request, response, next) => {
   );
 });
 
-router.put('/:id', (request, response, next) => {
+router.put('/id/:id', (request, response, next) => {
   const { id } = request.params;
   const updatingKeys = ['name', 'personality'];
   const fields = [];
@@ -71,7 +85,7 @@ router.put('/:id', (request, response, next) => {
   });
 });
 
-router.delete('/:id', (request, response, next) => {
+router.delete('/id/:id', (request, response, next) => {
   const { id } = request.params;
 
   pool.query('DELETE FROM monsters WHERE id=($1)', [id], (err, res) => {
