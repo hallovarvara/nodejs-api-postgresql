@@ -16,6 +16,12 @@ CREATE TABLE lives(
   habitat character varying(50)
 );
 
+CREATE TABLE aliens(
+  id serial,
+  name character varying(50),
+  superpower character varying(50)
+);
+
 INSERT INTO monsters(name, personality)
 VALUES
   ('Fluffy', 'Agressive'),
@@ -35,3 +41,10 @@ VALUES
   ('Noodles', 'forest'),
   ('Snowy', 'mountain'),
   ('Rusty', 'desert');
+
+INSERT INTO aliens(name, superpower)
+VALUES
+  ('Gizzmo', 'flying'),
+  ('Dimpo', 'invisibility'),
+  ('Dusso', 'omnivore'),
+  ('Tizzo', 'time freezing')

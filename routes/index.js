@@ -3,12 +3,13 @@ import { Router } from 'express';
 import monsters from './monsters.js';
 import habitats from './habitats.js';
 import lives from './lives.js';
-import { app } from '../app.js';
+import aliens from './aliens.js';
 
 const router = Router();
 
 router.use('/monsters', monsters);
 router.use('/habitats', habitats);
 router.use('/lives', lives);
+router.use('/aliens', aliens);
 
 export default router;
