@@ -1,5 +1,5 @@
 CREATE TABLE monsters(
-  id serial,
+  id serial PRIMARY KEY,
   name character varying(50),
   personality character varying(50)
 );
@@ -17,9 +17,16 @@ CREATE TABLE lives(
 );
 
 CREATE TABLE aliens(
-  id serial,
+  id serial PRIMARY KEY,
   name character varying(50),
   superpower character varying(50)
+);
+
+CREATE TABLE enemies(
+  alien_id int not null,
+  monster_id int not null,
+  CONSTRAINT fk_alien_id FOREIGN KEY(alien_id) REFERENCES aliens(id),
+  CONSTRAINT fk_monster_id FOREIGN KEY(monster_id) REFERENCES monsters(id)
 );
 
 INSERT INTO monsters(name, personality)
@@ -47,4 +54,11 @@ VALUES
   ('Gizzmo', 'flying'),
   ('Dimpo', 'invisibility'),
   ('Dusso', 'omnivore'),
-  ('Tizzo', 'time freezing')
+  ('Tizzo', 'time freezing');
+
+INSERT INTO enemies(alien_id, monster_id)
+VALUES
+  (1, 4),
+  (2, 3),
+  (3, 2),
+  (4, 1)
