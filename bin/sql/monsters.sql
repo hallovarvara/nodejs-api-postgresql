@@ -1,25 +1,25 @@
 CREATE TABLE monsters(
   id serial PRIMARY KEY,
-  name character varying(50),
-  personality character varying(50)
+  name varchar(50),
+  personality varchar(50)
 );
 
 CREATE TABLE habitats(
   id serial,
-  name character varying(50),
-  climate character varying(50),
+  name varchar(50),
+  climate varchar(50),
   temperature int
 );
 
 CREATE TABLE lives(
-  monster character varying(50),
-  habitat character varying(50)
+  monster varchar(50),
+  habitat varchar(50)
 );
 
 CREATE TABLE aliens(
   id serial PRIMARY KEY,
-  name character varying(50),
-  superpower character varying(50)
+  name varchar(50),
+  superpower varchar(50)
 );
 
 CREATE TABLE enemies(

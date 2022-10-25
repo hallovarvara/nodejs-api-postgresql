@@ -9,8 +9,16 @@
     "dev": "nodemon bin/www.js"
   },
   "type": "module",
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "backend",
+    "nodejs",
+    "node",
+    "rest",
+    "api",
+    "rest",
+    "hallovarvara"
+  ],
+  "author": "Varya Deviaterikova <hallovarvara@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.20",

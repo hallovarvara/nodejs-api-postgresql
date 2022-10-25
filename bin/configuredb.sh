@@ -4,9 +4,9 @@ source './secrets/db_config.sh'
 
 echo "Configuring database: $PGTABLE"
 
-dropdb -p $PGPORT -U node_user monstersdb;
-createdb -p $PGPORT -U node_user monstersdb;
+dropdb -p $PGPORT -U $PGUSER $PGTABLE;
+createdb -p $PGPORT -U $PGUSER $PGTABLE;
 
-psql -p $PGPORT -U node_user monstersdb < ./bin/sql/monsters.sql
+psql -p $PGPORT -U $PGUSER $PGTABLE < ./bin/sql/monsters.sql
 
 echo "$PGTABLE configured"
